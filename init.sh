@@ -43,7 +43,7 @@ apt install -y postgresql postgresql-contrib
 systemctl enable --now postgresql # Enable (start saat boot) dan start service sekarang
 
 echo "🟢 (8/11) Install MySQL..."
-apt install mysql-server
+apt install -y mysql-server
 systemctl enable --now mysql # Enable (start saat boot) dan start service sekarang
 
 echo "🟢 (9/11) Install Nginx..."
