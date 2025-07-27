@@ -67,6 +67,8 @@ run_task "Menginstal MySQL Server" "apt-get install -y mysql-server"
 run_task "Menjalankan & mengaktifkan MySQL" "systemctl enable --now mysql"
 run_task "Menginstal Nginx" "apt-get install -y nginx"
 run_task "Menjalankan & mengaktifkan Nginx" "systemctl enable --now nginx"
+run_task "Menginstal Supervisor" "apt-get install -y supervisor"
+run_task "Menjalankan & mengaktifkan Supervisor" "systemctl enable --now supervisor"
 run_task "Menginstal dependensi untuk Certbot" "apt-get install -y python3-dev python3-venv libaugeas-dev gcc"
 run_task "Membuat virtual environment untuk Certbot" "python3 -m venv /opt/certbot/"
 run_task "Menginstal Certbot & plugin Nginx" "/opt/certbot/bin/pip install --upgrade pip certbot certbot-nginx"
@@ -74,7 +76,7 @@ run_task "Membuat symlink untuk Certbot" "ln -sf /opt/certbot/bin/certbot /usr/b
 run_task "Konfigurasi UFW Firewall" "ufw allow OpenSSH && ufw allow 'Nginx Full'"
 run_task "Mengaktifkan UFW Firewall" "ufw --force enable"
 run_task "Menginstal Fail2ban" "apt install fail2ban"
-run_task "Mengaktifkan Fail2ban" "systemctl enable --now fail2ban"
+run_task "Menjalankan & mengaktifkan Fail2ban" "systemctl enable --now fail2ban"
 
 # ==============================================================================
 # SELESAI
