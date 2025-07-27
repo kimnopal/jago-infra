@@ -73,6 +73,8 @@ run_task "Menginstal Certbot & plugin Nginx" "/opt/certbot/bin/pip install --upg
 run_task "Membuat symlink untuk Certbot" "ln -sf /opt/certbot/bin/certbot /usr/bin/certbot"
 run_task "Konfigurasi UFW Firewall" "ufw allow OpenSSH && ufw allow 'Nginx Full'"
 run_task "Mengaktifkan UFW Firewall" "ufw --force enable"
+run_task "Menginstal Fail2ban" "apt install fail2ban"
+run_task "Mengaktifkan Fail2ban" "systemctl enable --now fail2ban"
 
 # ==============================================================================
 # SELESAI
@@ -87,6 +89,7 @@ echo -e "   - ${GREEN}✔${RESET} NodeJS v22 (via NVM)"
 echo -e "   - ${GREEN}✔${RESET} Nginx, PostgreSQL, MySQL"
 echo -e "   - ${GREEN}✔${RESET} Certbot (Let's Encrypt)"
 echo -e "   - ${GREEN}✔${RESET} UFW Firewall aktif"
+echo -e "   - ${GREEN}✔${RESET} Fail2ban aktif"
 echo
 echo -e "   ${YELLOW}Catatan:${RESET} Jika terjadi error, detail lengkap tersimpan di ${BOLD}${LOG_FILE}${RESET}"
 echo "--------------------------------------------------"
